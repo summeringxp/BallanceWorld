@@ -25,6 +25,8 @@ public class GameUser {
 	 * @param args
 	 */
 	private int id;
+	private String username;
+	
 	private String mood;
 	private static GameUser gameUser;
 
@@ -50,16 +52,17 @@ public class GameUser {
 		return id;
 	}
 
-	public boolean register(String usernametext, String passwordtext) {
+	public int register(String usernametext, String passwordtext, String deviceidtext) {
 		// TODO Auto-generated method stub
-		boolean success = true;
+		int userid = -1;
 		DefaultHttpClient httpclient = new DefaultHttpClient();
 		try {
 			
 			HttpPost httpPost = new HttpPost(GameConfig.SERVERHOME+GameConfig.REGISTERURL);
 			List<NameValuePair> nvps = new ArrayList<NameValuePair>();
 			nvps.add(new BasicNameValuePair("username", usernametext));
-			nvps.add(new BasicNameValuePair("password", "secret"));
+			nvps.add(new BasicNameValuePair("password", passwordtext));
+			nvps.add(new BasicNameValuePair("deviceid", deviceidtext));
 			httpPost.setEntity(new UrlEncodedFormEntity(nvps));
 			HttpResponse response = httpclient.execute(httpPost);
 		
@@ -74,7 +77,8 @@ public class GameUser {
 					
 					
 					mood = CommonUtils.getStringFromInputStream(instream);
-					Log.d("tag", mood);
+					userid = mood.length();
+					Log.i("tag", mood);
 					// do something useful with the response
 				} catch (IOException ex) {
 					// In case of an IOException the connection will be released
@@ -96,7 +100,7 @@ public class GameUser {
 			}
 
 		}  catch (Exception e) {
-			success = false;
+			userid = -1;
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} finally {
@@ -105,7 +109,7 @@ public class GameUser {
 			// immediate deallocation of all system resources
 			httpclient.getConnectionManager().shutdown();
 		}
-		return success;
+		return userid;
 	}
 
 	public String getMood() {

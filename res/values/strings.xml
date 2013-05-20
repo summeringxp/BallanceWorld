@@ -7,5 +7,6 @@
     <string name="hello">hello</string>
     <string name="msg">Message from javascript</string>
     <string name="hint">type sth. here</string>
+    
 
 </resources>

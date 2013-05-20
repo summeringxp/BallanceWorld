@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:orientation="vertical"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent">
+    <FrameLayout
+            android:layout_width="fill_parent"
+            android:layout_height="0px"
+            android:layout_weight="1">
+
+        <ballanceBallGame.GameSurfaceView android:id="@+id/menuview"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent" />
+    <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="left">
+    <Button
+        android:id="@+id/start"
+        android:layout_width="90dip"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_marginTop="5dip"
+        android:text="Start!" /><!--
+    <Button
+    	android:id="@+id/edit"
+        android:layout_width="90dip"
+        android:layout_height="wrap_content"
+        android:text="Edit Map" />
+    -->
+    </LinearLayout>
+     <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center">
+    </LinearLayout>
+    <RelativeLayout
+            android:orientation="horizontal"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom">
+        <Button android:id="@+id/reset"
+         android:layout_width="60dip"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:text="Reset"
+        />
+    <Button android:id="@+id/back"
+        android:layout_width="60dip"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:text="Back"
+        />
+    </RelativeLayout>
+    </FrameLayout> 
+</LinearLayout>
